@@ -1,0 +1,185 @@
+# =============================================================================
+# RL Foundations Deep Dive — .gitignore
+# =============================================================================
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Distribution / Packaging
+.Python
+build/
+dist/
+eggs/
+.eggs/
+*.egg-info/
+*.egg
+MANIFEST
+sdist/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ── Jupyter Notebook ─────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# ── NumPy / 직렬화 cache ─────────────────────────────────────────────────────
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+
+# ── Gymnasium / Gym 환경 cache ───────────────────────────────────────────────
+.gym_cache/
+.gymnasium_cache/
+
+# ── Experiment outputs ───────────────────────────────────────────────────────
+# 생성된 시각화·학습 곡선·plot (각 챕터)
+# Ch1: MDP 정의 시각화 · Markov property 도식 · POMDP belief state
+# Ch2: V^π · Q^π heatmap · Bellman expectation 수렴 곡선
+# Ch3: V* · Q* heatmap · greedy policy 시각화
+# Ch4: Contraction 시각화 · ‖V_k - V*‖ log plot · γ별 수렴 속도 비교
+# Ch5: Value Iteration vs Policy Iteration 수렴 비교 · GPI 사각 다이어그램 · Howard 정책 변화 추적
+# Ch6: Performance Difference Lemma 검증 · advantage 분포 · stationary distribution
+# Ch7: Linear FA TD(0) 수렴 · Deadly Triad divergence · LSVI-UCB regret
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.gif
+*.mp4
+*.webm
+*.webp
+
+# 훈련 결과 / 체크포인트
+results/
+outputs/
+logs/
+checkpoints/
+runs/
+wandb/
+mlruns/
+tensorboard/
+tb_logs/
+*.log
+*.csv
+*.tfevents.*
+
+# 환경별 video recording (gymnasium video wrapper)
+videos/
+recordings/
+*.mov
+*.avi
+
+# 재현 실험 산출물 (논문별)
+reproductions/howard1960_pi/*.pkl
+reproductions/bellman1957_dp/*.pkl
+reproductions/puterman2005_mdp/*.pkl
+reproductions/banach1922_fixed_point/*.pkl
+reproductions/kakade2003_pdl/*.pkl
+reproductions/tsitsiklis1997_td_linear/*.pkl
+reproductions/jin2020_lsvi_ucb/*.pkl
+reproductions/sutton_barto_examples/*.pkl
+
+# ── Hyperparameter sweeps ────────────────────────────────────────────────────
+sweeps/
+optuna_studies/
+*.db
+*.sqlite
+*.sqlite3
+
+# ── IDE / Editor ─────────────────────────────────────────────────────────────
+# JetBrains (PyCharm, IntelliJ)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Vim / Emacs
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+
+# ── Documentation build ──────────────────────────────────────────────────────
+docs/_build/
+docs/generated/
+site/
+.mkdocs_cache/
+
+# ── Secrets / Credentials ────────────────────────────────────────────────────
+.env.local
+.env.*.local
+secrets.py
+credentials.json
+*.pem
+*.key
+
+# ── Compiled extensions / build artifacts ────────────────────────────────────
+*.ninja
+*.ninja_log
+*.ninja_deps
+
+# ── Miscellaneous ────────────────────────────────────────────────────────────
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+*.mo
+*.pot
+
+# data/ 디렉토리 (학습용 데이터 보존)
+data/
+datasets/
+raw/
+processed/
+!data/.gitkeep
