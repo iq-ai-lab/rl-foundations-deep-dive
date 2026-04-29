@@ -4,7 +4,7 @@
 
 ### MDP 의 **6-tuple 정의**
 
-$$\mathcal{M} = (\mathcal{S},\, \mathcal{A},\, P,\, R,\, \gamma,\, \rho_0)$$
+$$\mathcal{M} = (\mathcal{S}, \mathcal{A}, P, R, \gamma, \rho_0)$$
 
 ### 를 **외우는 것** 과,
 
@@ -16,25 +16,29 @@ $$P(s_{t+1} \mid s_t, a_t, s_{t-1}, \ldots, s_0, a_0) = P(s_{t+1} \mid s_t, a_t)
 
 <br/>
 
-> *Bellman optimality equation*
+> ***Bellman optimality equation***
 >
-> $$V^*(s) = \max_a \Bigl[ R(s,a) + \gamma \sum_{s'} P(s' \mid s, a)\, V^*(s') \Bigr]$$
+> $$V^\star(s) = \max_a \left[ R(s, a) + \gamma \sum_{s'} P(s' \mid s, a) V^\star(s') \right]$$
 >
-> *을 **쓰는 것** 과, Bellman optimality operator $T^*$ 가*
+> *을 **쓰는 것** 과, Bellman optimality operator $T^\star$ 의 **$\gamma$-contraction***
 >
-> $$\|T^* V - T^* V'\|_\infty \leq \gamma\, \|V - V'\|_\infty$$
+> $$\|T^\star V - T^\star V'\|_\infty \leq \gamma \|V - V'\|_\infty$$
 >
-> *임을 증명하고, **Banach fixed point theorem** 으로 Value Iteration 의 유일한 고정점 존재와 linear convergence $\|V_k - V^*\|_\infty \leq \gamma^k \|V_0 - V^*\|_\infty$ 를 한 줄씩 유도할 수 있는 것은 다르다.*
+> *을 증명하고, **Banach fixed point theorem** 으로 Value Iteration 의 유일한 고정점 존재와 linear convergence*
+>
+> $$\|V_k - V^\star\|_\infty \leq \gamma^k \|V_0 - V^\star\|_\infty$$
+>
+> *를 한 줄씩 유도할 수 있는 것은 다르다.*
 >
 > *Policy Iteration 을 **이름으로 아는 것** 과, Howard (1960) 의 정리 — **policy evaluation + policy improvement 의 반복이 finite MDP 에서 유한 step 내 최적 정책 도달** — 을 policy 의 유한성 + strict improvement 로 증명할 수 있는 것은 다르다.*
 >
-> *Performance Difference Lemma (Kakade 2003)*
+> ***Performance Difference Lemma** (Kakade 2003)*
 >
-> $$V^{\pi'}(\rho) - V^\pi(\rho) = \frac{1}{1-\gamma}\, \mathbb{E}_{s \sim d^{\pi'}}\Bigl[ \mathbb{E}_{a \sim \pi'}[A^\pi(s, a)] \Bigr]$$
+> $$V^{\pi'}(\rho) - V^\pi(\rho) = \frac{1}{1-\gamma} \mathbb{E}_{s \sim d^{\pi'}}\bigl[ \mathbb{E}_{a \sim \pi'}[A^\pi(s, a)] \bigr]$$
 >
-> *가 왜 Policy Gradient theorem · TRPO · PPO 의 **모든 monotonic improvement 이론의 출발점** 인지를 알고 쓰는 것은 다르다.*
+> *가 왜 Policy Gradient theorem · TRPO · PPO 의 **모든 monotonic improvement 이론의 출발점** 인지 알고 쓰는 것은 다르다.*
 >
-> *$\gamma \in [0, 1)$ 의 제약이 단순한 hyperparameter 가 아니라 **bounded reward 에서의 무한 합 수렴 조건** 이고, $\gamma = 1$ 에서 episodic vs average-reward MDP 로 갈라지는 본질적 분기점임을 알고 쓰는 것은 다르다.*
+> *`γ ∈ [0, 1)` 의 제약이 단순한 hyperparameter 가 아니라 **bounded reward 에서의 무한 합 수렴 조건** 이고, `γ = 1` 에서 episodic vs average-reward MDP 로 갈라지는 본질적 분기점임을 알고 쓰는 것은 다르다.*
 
 <br/>
 
